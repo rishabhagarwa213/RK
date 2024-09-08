@@ -731,3 +731,77 @@
 </body>
 
 </html>
+<script>
+
+  function sendOrder() {
+    // Get the quantity value
+    const quantity = document.getElementById('quantity').value;
+  
+    // Static card details
+    const cardTitle = "Crispy Onion Rings";
+    const Gst = "Raunak Enterprises";
+    const cardDescription = "Indulge in our golden, crispy onion rings, made from fresh, hand-cut onions, lightly battered, and fried to perfection. Each bite offers a satisfying crunch followed by a sweet, tender center. Perfect as a starter, side dish, or a snack on their own, these onion rings are served with your choice of dipping sauces. A crowd favorite that’s sure to tantalize your taste buds!";
+    const cardPrice = "90rs-100gm";
+  
+    // Define the phone number (include country code without +)
+    const phoneNumber = '7289955405'; // Replace with your WhatsApp phone number
+  
+    // Create the message
+      const message = encodeURIComponent(`
+  *Order Details*
+  *Gst:* ${Gst}
+  *Title:* ${cardTitle}
+  *Description:* ${cardDescription}
+  *Price:* ${cardPrice}
+  *Quantity:* ${quantity}
+  `);
+  
+    // Create the WhatsApp URL
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+  
+    // Redirect to WhatsApp
+    window.open(whatsappURL, '_blank');
+  }
+  
+  
+  </script>
+
+
+<style>
+  .options {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the gap between items as needed */
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-selector label {
+  margin-right: 5px; /* Adjust spacing between label and input */
+}
+
+.quantity-selector input {
+  width: 60px; /* Adjust width of the input field as needed */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+</style>
